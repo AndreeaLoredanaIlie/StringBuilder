@@ -10,12 +10,10 @@ from linked_list import LinkedList, Node
 # Worst case running time is O(n)
 def remove_duplicates_with_set(n):
     s = set()
-    #n = head
     previous = None
     while n is not None:
-        import ipdb; ipdb.set_trace()
         if n.data in s:
-            previous.next = n.next
+            previous.next = n.next.next
         else:
             s.add(n.data)
             previous = n
@@ -46,6 +44,6 @@ if __name__ == "__main__":
     list_.append_to_tail(c)
     print("{}".format(list_))
     list_.printList()
-    remove_duplicates_without_set(list_.head)
+    remove_duplicates_with_set(list_.head)
     print("{}".format(list_))
     list_.printList()

@@ -29,7 +29,7 @@ class Stack(object):
             new_item.next = self.top
             self.top = new_item
 
-    def printList(self):
+    def print_list(self):
         temp_head = self.top
         while temp_head is not None:
             print(temp_head.data)
@@ -46,6 +46,17 @@ class Stack(object):
     def is_empty(self):
         return self.top is None
 
+    def is_full(self):
+        count = 0
+        temp_head = self.top
+        while temp_head is not None:
+            count += 1
+            temp_head = temp_head.next
+        if count >= 3:
+            return True
+        return False
+
+
 class EmptyStackException(Exception):
     pass
 
@@ -55,5 +66,5 @@ if __name__ == '__main__':
     stack.push(1)
     stack.push(4)
     stack.push(6)
-    stack.printList()
+    stack.print_list()
     print(stack)

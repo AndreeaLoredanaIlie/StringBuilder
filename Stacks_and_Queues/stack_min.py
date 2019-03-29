@@ -17,7 +17,6 @@ class Stack(object):
         self.top = None
 
     def min(self):
-        import ipdb; ipdb.set_trace()
         return self.peek().min
 
     # Remove the top item from the stack
@@ -28,7 +27,6 @@ class Stack(object):
 
     # Add an item to the top of the stack
     def push(self, item):
-        import ipdb; ipdb.set_trace()
         if self.top is None:
             self.top = StackNode(item)
             self.top.min = item
@@ -42,8 +40,7 @@ class Stack(object):
             else:
                 self.top.min = min_temp
 
-
-    def printList(self):
+    def print_list(self):
         temp_head = self.top
         while temp_head is not None:
             print(temp_head.data)
@@ -63,12 +60,11 @@ class Stack(object):
 class EmptyStackException(Exception):
     pass
 
-
 if __name__ == '__main__':
     stack = Stack()
     stack.push(1)
     stack.push(4)
     stack.push(6)
-    stack.printList()
+    stack.print_list()
     stack.min()
     print(stack)
